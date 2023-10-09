@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/07 19:48:02 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/09 13:29:57 by nikitos          ###   ########.fr       */
+/*   Created: 2023/10/07 21:32:24 by nikitos           #+#    #+#             */
+/*   Updated: 2023/10/09 12:13:09 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-// void	*routine(void *data_pointer)
-// {
-// 	printf("asd");
-// }
-
-int	main(int ac, char **av)
+void	incorrect_input(void)
 {
-	t_data	*data;
-	t_philo	*philos;
-
-	if ((ac != 5 && ac != 6) || !check_input(av))
-	{
-		incorrect_input();
-		exit(0);
-	}
-	philos = malloc(sizeof(t_philo) * ft_atoi(av[1]));
-	data = parse_data(av);
-	return (0);
+	printf("Incorrect input!\n\nHere are rules to run programm:\n\n");
+	printf("./philo | number_of_philosophers | time_to_die ");
+	printf("| time_to_eat | time_to_sleep |");
+	printf(" [number_of_times_each_philosopher_must_eat]\n");
 }
