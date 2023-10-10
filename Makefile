@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+         #
+#    By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:49:28 by nikitos           #+#    #+#              #
-#    Updated: 2023/10/09 13:31:12 by nikitos          ###   ########.fr        #
+#    Updated: 2023/10/10 14:40:00 by novsiann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-SRCS = src/main.c src/error.c src/check.c src/parse.c src/utils.c
+SRCS = src/main.c src/error.c src/check.c src/parse.c src/utils.c src/threads.c
 OBJS = ${SRCS:.c=.o}
 
 RM = rm -f

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:29:15 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/09 13:29:38 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/10 14:16:19 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,3 +40,25 @@ t_data	*parse_data(char **av)
 	params->over = 0;
 	return (params);
 } 
+
+void	init_philos(t_philo *philos, t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < data->num_p)
+	{
+		philos[i].start = 0;
+		philos[i].id = i + 1;
+		philos[i].meal = 0;
+		philos[i].thread = 0;
+		philos[i].forkl = &data->fork[i];
+		if (philos[i].id == data->num_p)
+			philos[i].forkr = &data->fork[0];
+		else
+			philos[i].forkr = &data->fork[i + 1];
+		philos[i].params = data;
+		philos[i].iter = 0;
+		i++;
+	}
+}

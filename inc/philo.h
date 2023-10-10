@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:18:46 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/09 13:30:47 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/10 14:39:37 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ typedef struct s_philo
 }				t_philo;
 
 void	incorrect_input(void);
+void	init_philos(t_philo *philos, t_data *data);
+void	init_mutex(t_philo *philos, t_data *data);
 
 int		check_input(char **av);
 int		arg_is_number(char *arg);

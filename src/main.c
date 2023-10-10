@@ -3,19 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:48:02 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/09 13:29:57 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/10 15:10:42 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-// void	*routine(void *data_pointer)
-// {
-// 	printf("asd");
-// }
+void	init_threads(t_philo *philos)
+{
+	int			i;
+	long int	k;
+
+	while (i < philos->params->num_p)
+		// pthread_create(&philos[i].thread, NULL, &routine, &philos[i]);
+}
+
+void	init_threads(t_philo *philos, t_data *data)
+{
+	init_mutex(philos, data);
+	init_threads();
+}
 
 int	main(int ac, char **av)
 {
@@ -29,5 +39,7 @@ int	main(int ac, char **av)
 	}
 	philos = malloc(sizeof(t_philo) * ft_atoi(av[1]));
 	data = parse_data(av);
+	init_philos(philos, data);
+	init_threads(philos, data);
 	return (0);
 }
