@@ -6,7 +6,7 @@
 /*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:39:43 by novsiann          #+#    #+#             */
-/*   Updated: 2023/10/10 21:38:59 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/12 17:32:00 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void	create_threads(t_philo *philos)
 	
 	i = 0;
 	while (i < philos->params->num_p)
+	{
 		pthread_create(&philos[i].thread, NULL, &routine, &philos[i]);
+		i++;
+	}
 	i = 0;
 	k = time_now();
 	while (i < philos->params->num_p)
