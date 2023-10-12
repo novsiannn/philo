@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:39:44 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/10 21:40:28 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/12 15:15:43 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_eat(t_philo *p)
 {
 	pthread_mutex_lock(p->forkl);
 	ft_print(p, 4);
-	pthread_mutex_lock(p->forkl);
+	pthread_mutex_lock(p->forkr);
 	ft_print(p, 4);
 	p->meal = time_now();
 	p->iter++;
