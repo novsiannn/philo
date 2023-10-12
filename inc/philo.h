@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:18:46 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/10 14:39:37 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/10 21:40:15 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,21 @@ typedef struct s_philo
 	t_data			*params;
 }				t_philo;
 
-void	incorrect_input(void);
-void	init_philos(t_philo *philos, t_data *data);
-void	init_mutex(t_philo *philos, t_data *data);
+uint64_t	time_now(void);
 
-int		check_input(char **av);
-int		arg_is_number(char *arg);
-int		ft_is_digit(char n);
-int		ft_atoi(char *str);
+void		incorrect_input(void);
+void		ft_print(t_philo *p, int i);
+void		ft_usleep(long int time);
+void		*routine(void *phil);
+void		create_threads(t_philo *philos);
+void		init_philos(t_philo *philos, t_data *data);
+void		init_mutex(t_philo *philos, t_data *data);
 
-t_data	*parse_data(char **av);
+int			check_input(char **av);
+int			arg_is_number(char *arg);
+int			ft_is_digit(char n);
+int			ft_atoi(char *str);
+
+t_data		*parse_data(char **av);
 
 #endif

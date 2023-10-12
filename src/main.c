@@ -3,28 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:48:02 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/10 15:10:42 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/10 21:48:05 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
 
-void	init_threads(t_philo *philos)
-{
-	int			i;
-	long int	k;
-
-	while (i < philos->params->num_p)
-		// pthread_create(&philos[i].thread, NULL, &routine, &philos[i]);
-}
-
 void	init_threads(t_philo *philos, t_data *data)
 {
 	init_mutex(philos, data);
-	init_threads();
+	create_threads(philos);
+	check_threads(philos);
+}
+
+void	check_threads(t_philo *p)
+{
+	int	i;
+
+	while (!p->params->ready)
+		continue ;
+	while (!p->params->over)
+	{
+		i = 0;
+		while (i < p->params->num_p)
+		{
+			if (check_death(&p[i]))
+				p->params->over = 1;
+		}
+		if (p->params->eated == p->params->num_p)
+			p->params->over = 1;
+	}
+	return ;
 }
 
 int	main(int ac, char **av)
