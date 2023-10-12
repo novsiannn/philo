@@ -6,7 +6,7 @@
 /*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:29:15 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/10 14:16:19 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:06:57 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,22 @@ void	init_philos(t_philo *philos, t_data *data)
 		philos[i].iter = 0;
 		i++;
 	}
+}
+
+int	check_death(t_philo *philos)
+{
+	long int	now;
+
+	pthread_mutex_lock(philos->params->print);
+	now = time_now() - philos->meal;
+	if (now >= philos->params->ttd)
+	{
+		pthread_mutex_unlock(philos->params->print);
+		ft_print(philos, 5);
+		pthread_mutex_unlock(philos->forkl);
+		pthread_mutex_unlock(philos->forkr);
+		return (1);
+	}
+	pthread_mutex_unlock(philos->params->print);
+	return (0);
 }

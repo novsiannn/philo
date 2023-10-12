@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:41 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/10 21:31:08 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/12 19:38:04 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_print(t_philo *p, int i)
 	else if (i == 3)
 		printf("%llu %d is thinking\n", time_now() - p->start, p->id);
 	else if (i == 4)
-		printf("%llu %d took a fork\n", time_now() - p->start, p->id);
+		printf("%llu %d has taken a fork\n", time_now() - p->start, p->id);
 	else if (i == 5)
 		printf("%llu %d died\n", time_now() - p->start, p->id);
 	pthread_mutex_unlock(p->params->print);
@@ -78,4 +78,21 @@ int	ft_atoi(char *str)
 	}
 	sum *= sign;
 	return (sum);
+}
+
+void	free_all(t_philo *philo)
+{
+	int	i;
+
+	i = 0;
+	while (i < philo->params->num_p)
+	{
+		pthread_mutex_destroy(philo[i].forkl);
+		i++;
+	}
+	pthread_mutex_destroy(philo->params->print);
+	free(philo->params->print);
+	free(philo->params->fork);
+	free(philo->params);
+	free(philo);
 }

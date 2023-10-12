@@ -6,7 +6,7 @@
 /*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:39:44 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/12 15:15:43 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:44:30 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*routine(void *phil)
 	t_philo *p;
 
 	p = (t_philo *)phil;
-	while (!(p->params->ready))
+	while (!p->params->ready)
 		continue ;
 	if (p->id & 1)
 		ft_usleep(p->params->tte * 0.9 + 1);

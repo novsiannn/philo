@@ -6,7 +6,7 @@
 /*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:18:46 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/12 15:07:24 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/12 19:19:00 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,11 @@ void		init_philos(t_philo *philos, t_data *data);
 void		init_mutex(t_philo *philos, t_data *data);
 void		check_threads(t_philo *p);
 void		ft_eat(t_philo *p);
+void		join_threads(t_philo *philos);
+void		free_all(t_philo *philo);
 
 int			check_input(char **av);
+int			check_death(t_philo *philos);
 int			arg_is_number(char *arg);
 int			ft_is_digit(char n);
 int			ft_atoi(char *str);
