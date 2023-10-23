@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+         #
+#    By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:49:28 by nikitos           #+#    #+#              #
-#    Updated: 2023/10/12 19:22:38 by novsiann         ###   ########.fr        #
+#    Updated: 2023/10/21 17:50:27 by nikitos          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,10 @@ all:	$(NAME)
 
 $(NAME):	$(OBJS)
 			@echo "\n"
-			@echo "$(YELLOW)Starting compiling...$(DEF_COLOR)"
-			@echo "\n"
-			@echo "$(CYAN)."
 			gcc $(CFLAGS) $(OBJS) -o $(NAME)
 			@echo "\n"
 			@echo "$(GREEN)MINISHELL compiled!$(DEF_COLOR)"
+			@echo "\n"
 
 clean:
 		@echo "$(RED)Starting deleting..."

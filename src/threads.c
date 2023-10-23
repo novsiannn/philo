@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:39:43 by novsiann          #+#    #+#             */
-/*   Updated: 2023/10/12 19:15:59 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/23 19:36:29 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ void	init_mutex(t_philo *philos, t_data *data)
 
 	i = 0;
 	while (i < data->num_p)
-	{
-		pthread_mutex_init(philos[i].forkl, NULL);
-		i++;
-	}
+		pthread_mutex_init(philos[i++].forkl, NULL);
 	pthread_mutex_init(data->print, NULL);
 }
 
@@ -60,19 +57,25 @@ void	check_threads(t_philo *p)
 {
 	int	i;
 
-	while (!p->params->ready)
-		continue ;
 	while (!p->params->over)
 	{
 		i = 0;
 		while (i < p->params->num_p)
 		{
-			if (check_death(&p[i]))
+			pthread_mutex_lock(p->params->print);
+			if (time_now() - p[i].meal > p->params->ttd)
+			{
+				p->params->over = 1;
+				printf("%lld Philosopher %i died.\n", time_now() - p->start, p->id);
+				pthread_mutex_unlock(p->params->print);
+				return ;
+			}
+			pthread_mutex_unlock(p->params->print);
+			if (p->params->eated == p->params->num_p)
 				p->params->over = 1;
 			i++;
 		}
-		if (p->params->eated == p->params->num_p)
-			p->params->over = 1;
+		usleep(500);
 	}
 	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:18:46 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/12 19:19:00 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/21 23:23:10 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				iter;
-	long int		start;
+	long long int	start;
 	long int		meal;
 	pthread_t		thread;
 	pthread_mutex_t	*forkl;
@@ -57,15 +57,19 @@ void		create_threads(t_philo *philos);
 void		init_philos(t_philo *philos, t_data *data);
 void		init_mutex(t_philo *philos, t_data *data);
 void		check_threads(t_philo *p);
-void		ft_eat(t_philo *p);
 void		join_threads(t_philo *philos);
 void		free_all(t_philo *philo);
 
+int			ft_eat(t_philo *p);
+int			put_down_forks(t_philo *philos);
 int			check_input(char **av);
 int			check_death(t_philo *philos);
 int			arg_is_number(char *arg);
 int			ft_is_digit(char n);
 int			ft_atoi(char *str);
+int			ft_sleep(t_philo *p);
+int			ft_think(t_philo *p);
+int			one_philo(t_philo *philos);
 
 t_data		*parse_data(char **av);
 

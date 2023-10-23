@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:29:15 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/12 19:06:57 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/21 23:23:32 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	init_philos(t_philo *philos, t_data *data)
 	i = 0;
 	while (i < data->num_p)
 	{
-		philos[i].start = 0;
 		philos[i].id = i + 1;
 		philos[i].meal = 0;
 		philos[i].thread = 0;
