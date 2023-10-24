@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   threads.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:39:43 by novsiann          #+#    #+#             */
-/*   Updated: 2023/10/23 19:36:29 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/24 11:12:47 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	create_threads(t_philo *philos)
 {
 	int			i;
 	long int	k;
-	
+
 	i = -1;
 	while (++i < philos->params->num_p)
 		pthread_create(&philos[i].thread, NULL, &routine, &philos[i]);
@@ -66,7 +66,8 @@ void	check_threads(t_philo *p)
 			if (time_now() - p[i].meal > p->params->ttd)
 			{
 				p->params->over = 1;
-				printf("%lld Philosopher %i died.\n", time_now() - p->start, p->id);
+				printf("%lld Philosopher %i died.\n", \
+				time_now() - p->start, p->id);
 				pthread_mutex_unlock(p->params->print);
 				return ;
 			}

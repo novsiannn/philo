@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:39:44 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/23 20:08:12 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/24 11:20:23 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	*routine(void *phil)
 {
-	t_philo *p;
+	t_philo	*p;
 
 	p = (t_philo *)phil;
 	if (one_philo(p))
-		return NULL;
+		return (NULL);
 	p->start = time_now();
 	if (p->id % 2)
 		usleep(30000);
+	if (p->params->check_tme && p->params->tme == p->iter)
+		p->params->over = 1;
 	while (!p->params->over)
 	{
 		if (ft_eat(p))
@@ -44,22 +46,23 @@ int	ft_eat(t_philo *p)
 	pthread_mutex_lock(p->forkl);
 	if (p->params->over)
 		return (put_down_forks(p));
-	printf("%lld Philosopher %i has taken a fork\n",time_now() - p->start, p->id);
+	printf("%lld Philosopher %i has taken a fork\n", \
+	time_now() - p->start, p->id);
 	if (p->params->over)
 		return (put_down_forks(p));
 	pthread_mutex_lock(p->forkr);
 	if (p->params->over)
 		return (put_down_forks(p));
-	printf("%lld Philosopher %i has taken a fork\n", time_now() - p->start, p->id);
+	printf("%lld Philosopher %i has taken a fork\n", \
+	time_now() - p->start, p->id);
 	if (p->params->over)
 		return (put_down_forks(p));
 	p->meal = time_now();
 	p->iter++;
 	printf("%lld Philosopher %i is eating\n", time_now() - p->start, p->id);
-	while (p->meal + p->params->tte > time_now() && !p->params
-	->over)
+	while (p->meal + p->params->tte > time_now() && \
+	!p->params->over)
 		usleep(100);
-	printf("\n Eated %d\n", p->iter);
 	put_down_forks(p);
 	return (0);
 }
@@ -77,7 +80,7 @@ int	ft_sleep(t_philo *p)
 	return (0);
 }
 
-int ft_think(t_philo *p)
+int	ft_think(t_philo *p)
 {
 	if (p->params->over)
 		return (1);

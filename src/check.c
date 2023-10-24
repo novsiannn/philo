@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 11:37:45 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/21 22:00:45 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/24 11:10:49 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	one_philo(t_philo *philos)
 	if (philos->params->num_p == 1)
 	{
 		pthread_mutex_lock(philos->forkl);
-		printf("%lld Philosopher %i has taken a fork\n", time_now() - philos->start, philos->id);
+		printf("%lld Philosopher %i has taken a fork\n", \
+		time_now() - philos->start, philos->id);
 		usleep(philos->params->ttd);
 		put_down_forks(philos);
 		return (1);

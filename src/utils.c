@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:04:41 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/21 20:59:37 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/24 11:13:47 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,11 @@ uint64_t	time_now(void)
 	return (milliseconds);
 }
 
-// void	ft_usleep(long int time)
-// {
-// 	long int	start_time;
-
-// 	start_time = time_now();
-// 	while ((time_now() - start_time) < (unsigned long long) time)
-// 		usleep(150);
-// }
-
 int	ft_atoi(char *str)
 {
-	int i;
-	int sum;
-	int sign;
+	int	i;
+	int	sum;
+	int	sign;
 
 	sign = 1;
 	sum = 0;

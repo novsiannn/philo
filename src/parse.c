@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
+/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 13:29:15 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/21 23:23:32 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/24 11:11:09 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_data	*parse_data(char **av)
 {
-	t_data *params;
+	t_data	*params;
 
 	params = malloc(sizeof(t_data));
 	if (params == NULL)
@@ -39,7 +39,7 @@ t_data	*parse_data(char **av)
 	params->ready = 0;
 	params->over = 0;
 	return (params);
-} 
+}
 
 void	init_philos(t_philo *philos, t_data *data)
 {
