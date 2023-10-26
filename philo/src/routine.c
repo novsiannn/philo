@@ -6,7 +6,7 @@
 /*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:39:44 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/24 13:42:27 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/26 18:44:32 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	ft_eat(t_philo *p)
 	if (!p->params->over)
 		printf("%lld Philosopher %i is eating\n", time_now() - p->start, p->id);
 	pthread_mutex_unlock(p->params->print);
-	while (p->meal + p->params->tte > time_now() && \
-	!p->params->over)
+	while ((unsigned long long)p->meal + (unsigned long long)p->params->tte \
+	> time_now() && !p->params->over)
 		usleep(100);
 	put_down_forks(p);
 	return (0);
@@ -85,7 +85,7 @@ int	ft_eat(t_philo *p)
 
 int	ft_sleep(t_philo *p)
 {
-	long long	time;
+	unsigned long long	time;
 
 	time = time_now();
 	if (p->params->over)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+         #
+#    By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/07 19:49:28 by nikitos           #+#    #+#              #
-#    Updated: 2023/10/21 17:50:27 by nikitos          ###   ########.fr        #
+#    Updated: 2023/10/26 16:59:27 by novsiann         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ RED = \033[0;31m
 YELLOW = \033[1;33m
 INC = inc
 # -fsanitize=address -g -I $(INC)
-#CFLAGS = -Wall -Wextra -Werror -g
+
+CFLAGS = -Wall -Wextra -Werror -g
 
 all:	$(NAME)
 
@@ -34,7 +35,7 @@ $(NAME):	$(OBJS)
 			@echo "\n"
 			gcc $(CFLAGS) $(OBJS) -o $(NAME)
 			@echo "\n"
-			@echo "$(GREEN)MINISHELL compiled!$(DEF_COLOR)"
+			@echo "$(YELLOW)Philosophers compiled!$(DEF_COLOR)💫"
 			@echo "\n"
 
 clean:

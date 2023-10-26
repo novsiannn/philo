@@ -6,7 +6,7 @@
 /*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 14:39:43 by novsiann          #+#    #+#             */
-/*   Updated: 2023/10/24 12:00:22 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/26 17:03:14 by novsiann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	check_threads(t_philo *p)
 		while (i < p->params->num_p)
 		{
 			pthread_mutex_lock(p->params->print);
-			if (time_now() - p[i].meal > p->params->ttd)
+			if (time_now() - p[i].meal > (unsigned long long)p->params->ttd)
 			{
 				p->params->over = 1;
 				printf("%lld Philosopher %i died.\n", \
