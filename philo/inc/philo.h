@@ -6,7 +6,7 @@
 /*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 19:18:46 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/21 23:23:10 by nikitos          ###   ########.fr       */
+/*   Updated: 2023/10/27 17:25:54 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void		init_mutex(t_philo *philos, t_data *data);
 void		check_threads(t_philo *p);
 void		join_threads(t_philo *philos);
 void		free_all(t_philo *philo);
+void		ft_usleep(long int time);
 
 int			ft_eat(t_philo *p);
 int			put_down_forks(t_philo *philos);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: novsiann <novsiann@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nikitos <nikitos@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 21:39:44 by nikitos           #+#    #+#             */
-/*   Updated: 2023/10/26 18:44:32 by novsiann         ###   ########.fr       */
+/*   Updated: 2023/10/27 17:32:13 by nikitos          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	*routine(void *phil)
 		return (NULL);
 	p->start = time_now();
 	if (p->id % 2)
-		usleep(30000);
+		ft_usleep(p->params->tte * 0.9 + 1);
 	while (!p->params->over)
 	{
 		if (ft_eat(p))
